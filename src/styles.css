@@ -1,0 +1,182 @@
+:root {
+  --bg: #0b0f14;
+  --surface: #151b22;
+  --surface-2: #1c242e;
+  --line: #2a3440;
+  --text: #f4f1ea;
+  --dim: #8b939c;
+  --accent: #c8f542;
+  --accent-ink: #0b0f14;
+  --mint: #3ddc97;
+  --amber: #f5c14a;
+  --danger: #ff5a4f;
+  --radius: 16px;
+  --pad: 20px;
+  --safe-b: env(safe-area-inset-bottom, 12px);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body, #root { min-height: 100%; background: var(--bg); color: var(--text); }
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  padding: env(safe-area-inset-top) 0 0;
+}
+
+button, input, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; border: 0; background: none; }
+input, textarea {
+  width: 100%;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 16px;
+  outline: none;
+}
+input:focus, textarea:focus { border-color: #3d4a58; }
+
+.app {
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding: 16px var(--pad) calc(24px + var(--safe-b));
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+.brand { font-weight: 700; letter-spacing: -0.03em; font-size: 20px; }
+.brand span { color: var(--accent); }
+.pill {
+  font-size: 12px;
+  color: var(--dim);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+h1 { font-size: 22px; font-weight: 650; letter-spacing: -0.03em; line-height: 1.2; }
+.lead { color: var(--dim); font-size: 15px; line-height: 1.45; margin-top: 8px; }
+
+.stack { display: flex; flex-direction: column; gap: 12px; }
+.grow { flex: 1; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+.amount {
+  font-size: 40px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.amount small {
+  font-size: 16px;
+  color: var(--dim);
+  font-weight: 500;
+  margin-left: 6px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--text);
+}
+.chip.mint { color: var(--mint); background: #3ddc9718; }
+.chip.amber { color: var(--amber); background: #f5c14a18; }
+.chip.danger { color: var(--danger); background: #ff5a4f18; }
+
+.btn {
+  height: 56px;
+  border-radius: 20px;
+  font-weight: 650;
+  font-size: 16px;
+  width: 100%;
+}
+.btn.primary { background: var(--accent); color: var(--accent-ink); }
+.btn.primary:disabled { opacity: 0.4; }
+.btn.ghost {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--text);
+}
+.btn.danger { background: var(--danger); color: white; }
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+.row:last-child { border-bottom: 0; }
+
+.muted { color: var(--dim); font-size: 13px; }
+.back { color: var(--dim); font-size: 14px; margin-bottom: 16px; }
+.rule {
+  background: var(--surface-2);
+  border-radius: 14px;
+  padding: 14px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--text);
+}
+.actions { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+.field { margin-bottom: 14px; }
+.stepper { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+.stepper button {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+.stepper button.on { border-color: var(--accent); color: var(--accent); }
+
+.code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 32px;
+  letter-spacing: 0.18em;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(24px + var(--safe-b));
+  transform: translateX(-50%);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  z-index: 20;
+}
